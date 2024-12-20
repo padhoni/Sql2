@@ -1,0 +1,9 @@
+select 
+    (case
+        when id%2!=0 and id!=n then id+1
+        when id%2!=0 and id=n then id
+        else
+            id-1
+    end) as id, student
+    from Seat, (select count(*) as n from Seat) as Seat1
+    order by id asc
